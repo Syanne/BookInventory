@@ -14,6 +14,13 @@ Please replace following connection string with your connection string:
 
 ``` "Data Source=DESKTOP-AUN9LHE;Initial Catalog=bookInventory;Integrated Security=True;Encrypt=False" ```
 
+
+Please execute ``` Update-Database -Project BookInventory.DataAccess ``` on your empty db
+
+
+ALso please enable Full-Text search on your MS SQL Server. You can do this using 
+``` exec sp_fulltext_database 'enable'; ```
+
 ### BookInventory.WebApi APIs
 
 Home page is preserved from scaffold.
