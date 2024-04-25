@@ -1,6 +1,6 @@
 ﻿namespace BookInventory
 {
-    partial class Edit
+    partial class EditBookForm
     {
         /// <summary>
         /// Required designer variable.

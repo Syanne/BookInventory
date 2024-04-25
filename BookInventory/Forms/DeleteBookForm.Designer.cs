@@ -1,6 +1,6 @@
 ﻿namespace BookInventory
 {
-    partial class DeleteForm
+    partial class DeleteBookForm
     {
         /// <summary>
         /// Required designer variable.

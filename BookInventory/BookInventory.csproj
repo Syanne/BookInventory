@@ -222,29 +222,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddBook.cs">
+    <Compile Include="Forms\AddBookForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddBook.Designer.cs">
-      <DependentUpon>AddBook.cs</DependentUpon>
+    <Compile Include="Forms\AddBookForm.Designer.cs">
+      <DependentUpon>AddBookForm.cs</DependentUpon>
     </Compile>
     <Compile Include="BookInventoryClient.cs" />
-    <Compile Include="DeleteForm.cs">
+    <Compile Include="Forms\DeleteBookForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DeleteForm.Designer.cs">
-      <DependentUpon>DeleteForm.cs</DependentUpon>
+    <Compile Include="Forms\DeleteBookForm.Designer.cs">
+      <DependentUpon>DeleteBookForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Edit.cs">
+    <Compile Include="Forms\EditBookForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Edit.Designer.cs">
-      <DependentUpon>Edit.cs</DependentUpon>
+    <Compile Include="Forms\EditBookForm.Designer.cs">
+      <DependentUpon>EditBookForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home.cs">
+    <Compile Include="Forms\Home.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home.Designer.cs">
+    <Compile Include="Forms\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IBookInventoryClient.cs" />
@@ -253,16 +253,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BookService.cs" />
     <Compile Include="ViewModels\BookRowVm.cs" />
-    <EmbeddedResource Include="AddBook.resx">
-      <DependentUpon>AddBook.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\AddBookForm.resx">
+      <DependentUpon>AddBookForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DeleteForm.resx">
-      <DependentUpon>DeleteForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\DeleteBookForm.resx">
+      <DependentUpon>DeleteBookForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Edit.resx">
-      <DependentUpon>Edit.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\EditBookForm.resx">
+      <DependentUpon>EditBookForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Home.resx">
+    <EmbeddedResource Include="Forms\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

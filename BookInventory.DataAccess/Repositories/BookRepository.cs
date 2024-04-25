@@ -120,6 +120,7 @@ namespace BookInventory.DataAccess.Repositories
             }
 
             var book = await _ctx.Books
+                .Include(x => x.Category)
                 .FirstAsync(x => x.Id == id);
 
             return book;

@@ -1,6 +1,6 @@
 ﻿namespace BookInventory
 {
-    partial class AddBook
+    partial class AddBookForm
     {
         /// <summary>
         /// Required designer variable.

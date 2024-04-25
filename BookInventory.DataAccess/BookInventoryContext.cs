@@ -7,19 +7,11 @@ namespace BookInventory.DataAccess
     {
         public BookInventoryContext() : base()
         {
-            //Database.SetInitializer(new DBInitializer());
         }
         public BookInventoryContext(DbContextOptions options) : base(options)
         {
 
 		}
-        //public BookInventoryContext CreateDbContext(string[] args)
-        //{
-        //    var optionsBuilder = new DbContextOptionsBuilder<BloggingContext>();
-        //    optionsBuilder.sq("Data Source=blog.db");
-
-        //    return new BloggingContext(optionsBuilder.Options);
-        //}
 
         public DbSet<Book> Books { get; set; }
 
@@ -30,7 +22,7 @@ namespace BookInventory.DataAccess
 			if (!optionsBuilder.IsConfigured)
 			{
 				optionsBuilder.UseSqlServer(
-					"Data Source=DESKTOP-AUN9LHE;Initial Catalog=bookInventory;Integrated Security=True;Encrypt=False");
+                    "Data Source=DESKTOP-AUN9LHE;Initial Catalog=somesome;Integrated Security=True;Encrypt=False");
 			}
 
 			base.OnConfiguring(optionsBuilder);

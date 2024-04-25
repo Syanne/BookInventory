@@ -27,13 +27,14 @@ namespace BookInventory.Tests
         public async Task GetBook_Success()
         {
             var ctx = TestInitialize();
+            ctx.Categories.Add(new Category { Id = 2, CategoryName = "Test", Description = "Some" });
             ctx.Books.Add(new Book
             {
                 Id = 1,
                 Title = "Test",
                 Author = "Author 1",
                 ISBN = "123123123",
-                CategoryId = 3,
+                CategoryId = 2,
                 PublicationYear = "2017",
                 Quantity = 5
             });
@@ -54,7 +55,7 @@ namespace BookInventory.Tests
             Assert.AreEqual("123123123", book.ISBN);
             Assert.AreEqual("2017", book.PublicationYear);
             Assert.AreEqual(5, book.Quantity);
-            Assert.AreEqual(3, book.CategoryId);
+            Assert.AreEqual(2, book.CategoryId);
         }
 
         [TestMethod]
@@ -64,6 +65,8 @@ namespace BookInventory.Tests
             var ctx = TestInitialize();
             var repository = new BookRepository(ctx); 
             
+            ctx.Categories.Add(new Category { Id = 3, CategoryName = "Test", Description = "Some"});
+
             ctx.Books.Add(new Book
             {
                 Id = 12,
@@ -89,13 +92,15 @@ namespace BookInventory.Tests
         {
             //arrange
             var ctx = TestInitialize();
+            ctx.Categories.Add(new Category { Id = 1, CategoryName = "Test", Description = "Some" });
+            ctx.Categories.Add(new Category { Id = 7, CategoryName = "Test 2", Description = "Some 33" });
             ctx.Books.Add(new Book
             {
                 Id = 17,
                 Title = "Test2",
                 Author = "Author",
                 ISBN = "787857857578587855",
-                CategoryId = 3,
+                CategoryId = 1,
                 PublicationYear = "2015",
                 Quantity = 5
             });
@@ -104,7 +109,7 @@ namespace BookInventory.Tests
             var repository = new BookRepository(ctx);            
 
             //act
-            await repository.Update(17, "new title", "new author", "33333", "1996", 4, 2);
+            await repository.Update(17, "new title", "new author", "33333", "1996", 4, 7);
 
             //assert
             var book = ctx.Books.FirstOrDefault(x => x.Id == 17);
@@ -115,7 +120,8 @@ namespace BookInventory.Tests
             Assert.AreEqual("33333", book.ISBN);
             Assert.AreEqual("1996", book.PublicationYear);
             Assert.AreEqual(4, book.Quantity);
-            Assert.AreEqual(2, book.CategoryId);
+            Assert.AreEqual(7, book.CategoryId);
+            Assert.AreEqual("Test 2", book.Category.CategoryName);
         }
     }
 }

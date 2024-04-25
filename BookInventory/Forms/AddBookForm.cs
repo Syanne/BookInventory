@@ -7,11 +7,11 @@ using System.Windows.Forms;
 
 namespace BookInventory
 {
-    public partial class AddBook : Form
+    public partial class AddBookForm : Form
     {
         IBookService _bookService;
 
-        public AddBook(IBookService bookService)
+        public AddBookForm(IBookService bookService)
         {
             InitializeComponent();
             _bookService = bookService;

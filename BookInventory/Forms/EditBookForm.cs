@@ -7,13 +7,13 @@ using System.Windows.Forms;
 
 namespace BookInventory
 {
-    public partial class Edit : Form
+    public partial class EditBookForm : Form
     {
         public int Id { get; set; }
 
         private readonly IBookService _bookService;
 
-        public Edit(IBookService bookService)
+        public EditBookForm(IBookService bookService)
         {
             InitializeComponent();
             _bookService = bookService;

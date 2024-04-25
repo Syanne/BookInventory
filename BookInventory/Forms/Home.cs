@@ -10,14 +10,14 @@ namespace BookInventory
     public partial class Home : Form
     {
         private readonly IBookService _bookService;
-        private readonly AddBook _addBookForm;
-        private readonly DeleteForm _deleteBookForm;
-        private readonly Edit _editBookForm;
+        private readonly AddBookForm _addBookForm;
+        private readonly DeleteBookForm _deleteBookForm;
+        private readonly EditBookForm _editBookForm;
 
         public Home(IBookService bookService,
-            AddBook addBookForm,
-            Edit editBookForm,
-            DeleteForm deleteBookForm)
+            AddBookForm addBookForm,
+            EditBookForm editBookForm,
+            DeleteBookForm deleteBookForm)
         {
             InitializeComponent();
             _bookService = bookService;

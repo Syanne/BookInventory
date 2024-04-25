@@ -4,12 +4,12 @@ using System.Windows.Forms;
 
 namespace BookInventory
 {
-    public partial class DeleteForm : Form
+    public partial class DeleteBookForm : Form
     {
         public int Id { get; set; }
         private readonly IBookService _bookService;
 
-        public DeleteForm(IBookService bookService)
+        public DeleteBookForm(IBookService bookService)
         {
             InitializeComponent();
             _bookService = bookService;
@@ -18,7 +18,7 @@ namespace BookInventory
         private async void DeleteForm_Load(object sender, EventArgs e)
         {
             var book = await _bookService.Get(Id);
-            label2.Text = $"'{book.CategoryName}'";
+            label2.Text = $"'{book.CategoryName}'?";
         }
 
         private async void button1_Click(object sender, EventArgs e)

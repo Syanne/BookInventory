@@ -32,9 +32,9 @@ namespace BookInventory
                     services.AddTransient<IBookService, BookService>();
                     services.AddTransient<IBookInventoryClient, BookInventoryClient>();
                     services.AddTransient<Home>();
-                    services.AddTransient<AddBook>();
-                    services.AddTransient<DeleteForm>();
-                    services.AddTransient<Edit>();
+                    services.AddTransient<AddBookForm>();
+                    services.AddTransient<DeleteBookForm>();
+                    services.AddTransient<EditBookForm>();
                 });
         }
     }

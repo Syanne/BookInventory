@@ -78,27 +78,36 @@ namespace BookInventory.DataAccess.Migrations
 
             migrationBuilder.Sql(createIndexSql, true);
 
-            var createProcSql = "BEGIN\r\n" +
+            var createProcSql = "CREATE PROCEDURE SearchABook\r\n\t" +
+                "@search nvarchar(50),\r\n\t" +
+                "@pageNumber int,\r\n\t" +
+                "@pageSize int,\r\n\t" +
+                "@asc bit\r\n" +
+                "AS\r\n" +
+                "BEGIN\r\n" +
                 "SET NOCOUNT ON\r\n\r\n" +
                 "if @search is not NULL AND @search != ''\r\n\t" +
-                "select * from Books b\r\n\t" +
+                "select b.*, c.CategoryName from Books b\r\n\t" +
+                "join Categories c on c.Id = b.CategoryId\r\n\t" +
                 "where contains(b.Title, @search)\r\n\t   " +
                 "OR contains(b.Author, @search)\r\n\t   " +
                 "OR contains(b.ISBN, @search)\r\n\t   " +
-                "OR contains(b.PublicationYear, @search)\r\n\t  " +
-                " order by \r\n\t\t" +
-                "case when @asc = 0 THEN b.Id ELSE 0 END DESC,\r\n\t\t" +
-                "case when @asc = 1 THEN b.Id ELSE 0 END ASC\r\n\t" +
-                "OFFSET @pageSize * (@pageNumber - 1) ROWS\r\n\t" +
-                "FETCH NEXT @pageSize ROWS ONLY\r\n" +
-                "ELSE \r\n\t" +
-                "select * from Books b\r\n\t   " +
+                "OR contains(b.PublicationYear, @search)\r\n\t   " +
                 "order by \r\n\t\t" +
                 "case when @asc = 0 THEN b.Id ELSE 0 END DESC,\r\n\t\t" +
                 "case when @asc = 1 THEN b.Id ELSE 0 END ASC\r\n\t" +
                 "OFFSET @pageSize * (@pageNumber - 1) ROWS\r\n\t" +
                 "FETCH NEXT @pageSize ROWS ONLY\r\n" +
-                "END";
+                "ELSE \r\n\t" +
+                "select b.*, c.CategoryName from Books b\r\n\t" +
+                "join Categories c on c.Id = b.CategoryId\r\n\t  " +
+                " order by \r\n\t\t" +
+                "case when @asc = 0 THEN b.Id ELSE 0 END DESC,\r\n\t\t" +
+                "case when @asc = 1 THEN b.Id ELSE 0 END ASC\r\n\t" +
+                "OFFSET @pageSize * (@pageNumber - 1) ROWS\r\n\t" +
+                "FETCH NEXT @pageSize ROWS ONLY\r\n" +
+                "END\r\n" +
+                "GO\r\n";
 
             migrationBuilder.Sql(createProcSql, true);
         }
